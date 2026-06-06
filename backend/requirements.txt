@@ -1,0 +1,30 @@
+# Web 框架
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# 数据库（当前默认 SQLite，见 backend/src/utils/database.py）
+sqlalchemy==2.0.23
+
+# 数据校验（FastAPI 依赖，显式锁定版本便于复现）
+pydantic==2.5.0
+
+# JWT 认证
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# 图片识别异步任务（可选；无 Redis 时自动回退 BackgroundTasks）
+celery==5.3.4
+redis==5.0.1
+
+# 图片处理（识别记录保存 base64 图片）
+pillow==10.1.0
+
+# 环境变量（DeepSeek API Key 等）
+python-dotenv==1.0.0
+
+# 美团商品抓取（backend/src/services/meituan_product_service.py）
+requests==2.31.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# uvicorn src.main_api:app --reload --host 0.0.0.0 --port 8000

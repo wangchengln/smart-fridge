@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 97%;
+    --foreground: 0 0% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+
+    /* 美团品牌黄 #FFD000 */
+    --primary: 48 100% 50%;
+    --primary-foreground: 0 0% 20%;
+
+    --secondary: 24 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 45 100% 95%;
+    --accent-foreground: 0 0% 20%;
+
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 48 100% 50%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[#f5f5f5] text-mt-text antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue',
+      'Microsoft YaHei', sans-serif;
+  }
+}
+
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-touch {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@layer components {
+  .mt-gradient-header {
+    background: linear-gradient(135deg, #ffd000 0%, #ffc300 50%, #ffb800 100%);
+  }
+  .mt-price {
+    @apply font-bold text-mt-red;
+  }
+  .mt-tag {
+    @apply inline-flex items-center rounded-md px-1.5 py-0.5 text-xs font-medium;
+  }
+  .mt-tag-yellow {
+    @apply mt-tag bg-mt-yellow/20 text-mt-orange;
+  }
+  .mt-tag-green {
+    @apply mt-tag bg-emerald-50 text-emerald-600;
+  }
+  .mt-tag-red {
+    @apply mt-tag bg-red-50 text-mt-red;
+  }
+  .mt-input {
+    @apply w-full rounded-xl border border-mt-border bg-white px-4 py-2.5 text-sm text-mt-text
+      placeholder:text-mt-text-muted focus:border-mt-yellow focus:outline-none focus:ring-2
+      focus:ring-mt-yellow/30;
+  }
+
+  /* 首页设计系统 — 对齐参考稿美团黄 + 浅灰底 + 白卡片 */
+  .home-page {
+    background: #f5f5f5;
+  }
+  .home-section-title {
+    @apply text-[15px] font-bold tracking-tight text-mt-text;
+  }
+  .home-card {
+    @apply overflow-hidden rounded-2xl bg-white shadow-card;
+  }
+  .home-stat-card {
+    @apply flex flex-col rounded-2xl p-3 shadow-card transition-transform active:scale-[0.98];
+  }
+  .home-meal-card {
+    @apply flex flex-col overflow-hidden rounded-2xl bg-white shadow-card transition-transform active:scale-[0.98];
+  }
+  .home-service-icon {
+    @apply flex h-14 w-14 items-center justify-center rounded-full;
+  }
+  .home-btn-primary {
+    @apply rounded-xl bg-mt-yellow py-2 text-center text-[11px] font-bold text-mt-text shadow-sm transition-opacity active:opacity-90;
+  }
+  .home-btn-ghost {
+    @apply rounded-xl border border-mt-border bg-white py-2 text-center text-[11px] font-medium text-mt-text transition-colors active:bg-mt-gray-50;
+  }
+  .home-link-more {
+    @apply inline-flex items-center gap-0.5 text-[11px] font-medium text-mt-text-secondary transition-colors active:text-mt-orange;
+  }
+  .home-food-ring {
+    background: radial-gradient(circle at 30% 30%, #fff4cc 0%, #ffd000 55%, #ffb800 100%);
+  }
+
+  /* 厨房图鉴 — 六边形卡片 */
+  .hex-card {
+    position: relative;
+    width: 72px;
+    height: 82px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    overflow: hidden;
+  }
+  .hex-card-unlocked {
+    @apply shadow-sm ring-2 ring-mt-yellow/40;
+  }
+  .hex-card-locked {
+    @apply opacity-60;
+  }
+}
